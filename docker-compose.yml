@@ -1,0 +1,63 @@
+version: "2"
+services:
+
+  amqp:
+    image: rabbitmq:3.6.5-management
+    expose:
+      - "5672" # RabbitMQ main port
+      - "15672" # Management console (HTTP)
+    ports:
+      - "15672:15672"
+    restart: always
+
+  swift:
+    image: docker-registry.crim.ca/vesta/swift-local:latest
+
+  mss:
+    image: docker-registry.crim.ca/vesta/mss:1.7.0
+    links:
+     - amqp
+     - swift
+    ports:
+      - "5170:5000"
+    volumes:
+      - ./mss/:/opt/mss_cfg/:ro
+      - /data
+    restart: always
+    environment:
+      VRP_CONFIGURATION: /opt/mss_cfg/conf.py
+
+  transcoder:
+    image: docker-registry.crim.ca/vesta/service-transcoding:0.2.8
+    links:
+      - amqp
+      - mss
+    restart: always
+
+  sg:
+    image: docker-registry.crim.ca/vesta/sg:latest
+    links:
+     - amqp
+    ports:
+      - "5050:5000"
+    volumes:
+      - ./sg/:/opt/sg_cfg/:ro
+    environment:
+      VRP_CONFIGURATION: /opt/sg_cfg/conf.py
+    restart: always
+
+  service-stub:
+    image: docker-registry.crim.ca/vesta/service-stub:latest
+    links:
+      - amqp
+      - mss
+    restart: always
+
+# For performance issues.
+# See :
+# https://www.crim.ca/confluence/display/CRIMM/Docker#Docker-ConfiguredockernetworkMTUforopenStack
+networks:
+  default:
+    driver: bridge
+    driver_opts:
+      com.docker.network.driver.mtu: 1450
