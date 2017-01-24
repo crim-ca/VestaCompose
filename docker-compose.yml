@@ -51,9 +51,9 @@ services:
     links:
       - amqp
       - mss
-    user: "1"
+    user: "1000"
     restart: always
-    working_dir: /opt/local/src/VestaService/    
+    working_dir: /opt/local/src/VestaService/
     command: celery worker -A VestaService.stub -l info -b amqp://guest@amqp/ -Q stub --config celeryconfig
 
 # For performance issues.
