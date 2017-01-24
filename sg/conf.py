@@ -13,10 +13,14 @@ CELERY = {
 DATABASES = {
     'Invocations': {
         'filename': "service_invocations.db",
-        'schema_filename': "./static/service_invocations_schema.sql"},
+        'schema_filename': "/usr/lib/python2.6/site-packages/"
+        "ServiceGateway/static/"
+        "service_invocations_schema.sql"},
     'Requests': {
         'filename': "requests.db",
-        'schema_filename': "./static/requests_schema.sql"}}
+        'schema_filename': "/usr/lib/python2.6/site-packages/"
+        "ServiceGateway/static/"
+        "requests_schema.sql"}}
 
 WORKER_SERVICES = {
     'stub': {
