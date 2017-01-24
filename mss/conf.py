@@ -11,6 +11,14 @@ found in this file, you need to set the environment variable named
 "VRP_CONFIGURATION" to the path of your own copy before launching the program.
 """
 
+CELERY = {
+    'BROKER_URL': "amqp://amqp//",
+    'CELERY_RESULT_BACKEND': "amqp://",
+    'CELERY_TASK_SERIALIZER': "json",
+    'CELERY_RESULT_SERIALIZER': "json",
+    'CELERY_ACCEPT_CONTENT': ["json"],
+    'CELERY_TASK_RESULT_EXPIRES': 7200}
+
 WORKER_SERVICES = {
     'transcoder': {
         # Keyword used in the rest api to access this service
@@ -32,7 +40,7 @@ WORKER_SERVICES = {
         # Following parameters are required by the CANARIE API (info request)
         'name': 'My service',
         'synopsis': "RESTful service providing my_service.",
-        'version': "0.2.5",  # Expected version - will check.
+        'version': "0.2.8",  # Expected version - will check.
         'institution': 'My Organisation',
         'releaseTime': '2015-01-01T00:00:00Z',
         'supportEmail': 'support@my-organisation.ca',
