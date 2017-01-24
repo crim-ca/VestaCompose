@@ -10,6 +10,14 @@ CELERY = {
     'CELERY_ACCEPT_CONTENT': ["json"],
     'CELERY_TASK_RESULT_EXPIRES': 7200}
 
+DATABASES = {
+    'Invocations': {
+        'filename': "service_invocations.db",
+        'schema_filename': "./static/service_invocations_schema.sql"},
+    'Requests': {
+        'filename': "requests.db",
+        'schema_filename': "./static/requests_schema.sql"}}
+
 WORKER_SERVICES = {
     'stub': {
         # Keyword used in the rest api to access this service

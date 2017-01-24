@@ -46,12 +46,15 @@ services:
       VRP_CONFIGURATION: /opt/sg_cfg/conf.py
     restart: always
 
-  service-stub:
+  stub:
     image: docker-registry.crim.ca/vesta/service-stub:latest
     links:
       - amqp
       - mss
+    user: "1"
     restart: always
+    working_dir: /opt/local/src/VestaService/    
+    command: celery worker -A VestaService.stub -l info -b amqp://guest@amqp/ -Q stub --config celeryconfig
 
 # For performance issues.
 # See :
