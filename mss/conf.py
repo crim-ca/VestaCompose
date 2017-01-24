@@ -35,11 +35,12 @@ WORKER_SERVICES = {
         # The celery queue name.
         # Must match the queue name specified when starting the worker
         # (by the -Q switch)
-        'celery_queue_name': 'transcoder_0.2.8',
+        'celery_queue_name': 'transcoder',
 
         # Following parameters are required by the CANARIE API (info request)
         'name': 'My service',
-        'synopsis': "RESTful service providing my_service.",
+        'synopsis': "RESTful service providing multimedia document "
+                    "transcoding.",
         'version': "0.2.8",  # Expected version - will check.
         'institution': 'My Organisation',
         'releaseTime': '2015-01-01T00:00:00Z',

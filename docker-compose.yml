@@ -30,8 +30,9 @@ services:
   transcoder:
     image: docker-registry.crim.ca/vesta/service-transcoding:0.2.8
     links:
-      - amqp
+      - amqp:amqp-server
       - mss
+    user: "1000"
     restart: always
 
   sg:
