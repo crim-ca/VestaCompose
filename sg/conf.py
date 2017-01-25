@@ -14,13 +14,13 @@ CELERY = {
 
 DATABASES = {
     'Invocations': {
-        'filename': "service_invocations.db",
-        'schema_filename': "/usr/lib/python2.6/site-packages/"
+        'filename': "/mnt/volume/service_invocations.db",
+        'schema_filename': "/usr/lib/python2.7/site-packages/"
         "ServiceGateway/static/"
         "service_invocations_schema.sql"},
     'Requests': {
-        'filename': "requests.db",
-        'schema_filename': "/usr/lib/python2.6/site-packages/"
+        'filename': "/mnt/volume/requests.db",
+        'schema_filename': "/usr/lib/python2.7/site-packages/"
         "ServiceGateway/static/"
         "requests_schema.sql"}}
 
@@ -34,8 +34,8 @@ WORKER_SERVICES = {
 
         # The celery task name.
         # Must match the task in the worker app name : <proj_name>.<task_name>
-        # (ex.: worker.diarisation)
-        'celery_task_name': 'VestaService.stub',
+        # (ex.: diarisation)
+        'celery_task_name': 'stub',
 
         # The celery queue name.
         # Must match the queue name specified when starting the worker

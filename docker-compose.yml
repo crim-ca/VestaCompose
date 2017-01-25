@@ -40,13 +40,14 @@ services:
     restart: always
 
   sg:
-    image: docker-registry.crim.ca/vesta/sg:latest
+    image: docker-registry.crim.ca/vesta/sg:1.7.3
     links:
      - amqp
     ports:
       - "5050:5000"
     volumes:
       - ./sg/:/opt/sg_cfg/:ro
+      - /mnt/volume
     environment:
       VRP_CONFIGURATION: /opt/sg_cfg/conf.py
     restart: always
