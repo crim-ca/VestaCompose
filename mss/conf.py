@@ -11,6 +11,8 @@ found in this file, you need to set the environment variable named
 "VRP_CONFIGURATION" to the path of your own copy before launching the program.
 """
 
+SECURITY = {"BYPASS_SECURITY": True}
+
 CELERY = {
     'BROKER_URL': "amqp://amqp//",
     'CELERY_RESULT_BACKEND': "amqp://",
@@ -18,6 +20,9 @@ CELERY = {
     'CELERY_RESULT_SERIALIZER': "json",
     'CELERY_ACCEPT_CONTENT': ["json"],
     'CELERY_TASK_RESULT_EXPIRES': 7200}
+
+GET_STORAGE_DOC_REQ_URL = "http://mss:5000/get/{storage_doc_id}"
+POST_STORAGE_DOC_REQ_URL = "http://mss:5000/add"
 
 WORKER_SERVICES = {
     'transcoder': {
@@ -88,14 +93,12 @@ WORKER_SERVICES = {
         'rubber_params': {'spawn_ratio': 0.1}}
 }
 
-SECURITY = {"BYPASS_SECURITY": True}
-
 MSS = {
     'SWIFT_AUTHENTIFICATION_OPTIONS': 'V1_LOCAL',
-    'SWIFT_REDIRECT_URL': 'http://localhost:8080',
+    'SWIFT_REDIRECT_URL': 'http://swift:8080',
     'STORAGE_URL_IGNORE_PREFIX_FOR_TEMP_URL': 'swift',
     'SWIFT': {
-        'os-auth-url': 'http://localhost:8080/auth/v1.0',
+        'os-auth-url': 'http://swift:8080/auth/v1.0',
         'os-tenant-name': 'test',
         'os-username': 'tester',
         'os-password': 'crim1Log',

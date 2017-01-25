@@ -12,6 +12,10 @@ services:
 
   swift:
     image: docker-registry.crim.ca/vesta/swift-local:latest
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
 
   mss:
     image: docker-registry.crim.ca/vesta/mss:1.7.0

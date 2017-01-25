@@ -2,6 +2,8 @@
 Updated values for ServiceGateway in Vesta context.
 """
 
+SECURITY = {"BYPASS_SECURITY": True}
+
 CELERY = {
     'BROKER_URL': "amqp://amqp//",
     'CELERY_RESULT_BACKEND': "amqp://",
