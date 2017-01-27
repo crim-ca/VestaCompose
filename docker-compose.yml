@@ -42,7 +42,7 @@ services:
   sg:
     image: docker-registry.crim.ca/vesta/sg:latest
     links:
-     - amqp
+      - amqp
     ports:
       - "5050:5000"
     volumes:
