@@ -5,24 +5,31 @@ Updated values for ServiceGateway in Vesta context.
 SECURITY = {"BYPASS_SECURITY": True}
 
 CELERY = {
-    'BROKER_URL': "amqp://amqp//",
-    'CELERY_RESULT_BACKEND': "amqp://",
+    'BROKER_URL': "amqp://amqp",
+    "CELERY_RESULT_BACKEND": "rpc",
+    "CELERY_RESULT_PERSISTENT": False,
     'CELERY_TASK_SERIALIZER': "json",
     'CELERY_RESULT_SERIALIZER': "json",
-    'CELERY_ACCEPT_CONTENT': ["json"],
-    'CELERY_TASK_RESULT_EXPIRES': 7200}
+    'CELERY_ACCEPT_CONTENT': ["json"]}
 
 DATABASES = {
     'Invocations': {
         'filename': "/mnt/volume/service_invocations.db",
-        'schema_filename': "/usr/lib/python2.7/site-packages/"
-        "ServiceGateway/static/"
-        "service_invocations_schema.sql"},
+        'schema_filename':
+            "/usr/lib/python2.7/site-packages/"
+            "ServiceGateway/static/"
+            "service_invocations_schema.sql"
+        },
     'Requests': {
         'filename': "/mnt/volume/requests.db",
-        'schema_filename': "/usr/lib/python2.7/site-packages/"
-        "ServiceGateway/static/"
-        "requests_schema.sql"}}
+        'schema_filename':
+            "/usr/lib/python2.7/site-packages/"
+            "ServiceGateway/static/"
+            "requests_schema.sql"
+        }
+    }
+
+CELERY_PROJ_NAME = "worker"
 
 WORKER_SERVICES = {
     'stub': {
@@ -40,7 +47,6 @@ WORKER_SERVICES = {
         # The celery queue name.
         # Must match the queue name specified when starting the worker
         # (by the -Q switch)
-        # Kept separate from production
         'celery_queue_name': 'stub',
 
         # Following parameters are required by the CANARIE API (info request)

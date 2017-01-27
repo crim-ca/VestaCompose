@@ -40,7 +40,7 @@ services:
     restart: always
 
   sg:
-    image: docker-registry.crim.ca/vesta/sg:1.7.3
+    image: docker-registry.crim.ca/vesta/sg:latest
     links:
      - amqp
     ports:
@@ -52,15 +52,27 @@ services:
       VRP_CONFIGURATION: /opt/sg_cfg/conf.py
     restart: always
 
+  cb_server:
+    build: ./callback_server/
+    expose:
+      - "5000"
+    volumes:
+      - ./callback_server/get_cb.py:/tmp/get_cb.py
+    working_dir: /tmp
+    command: /tmp/get_cb.py
+
   stub:
     image: docker-registry.crim.ca/vesta/service-stub:latest
     links:
       - amqp
       - mss
+      - cb_server
     user: "1000"
     restart: always
-    working_dir: /opt/local/src/VestaService/
-    command: celery worker -A VestaService.stub -l info -b amqp://guest@amqp/ -Q stub --config celeryconfig
+    volumes:
+      - ./celeryconfig.py:/conf/celeryconfig.py
+    working_dir: /conf
+    command: celery worker -A VestaService.stub -l INFO --config=celeryconfig -Q stub -n stub.%n
 
   flower:
     image: totem/celery-flower-docker
