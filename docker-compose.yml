@@ -20,8 +20,8 @@ services:
   mss:
     image: docker-registry.crim.ca/vesta/mss:1.7.0
     links:
-     - amqp
-     - swift
+      - amqp
+      - swift
     ports:
       - "5170:5000"
     volumes:
@@ -77,11 +77,11 @@ services:
   flower:
     image: totem/celery-flower-docker
     links:
-        - amqp
+      - amqp
     user: "1000"
     restart: always
     ports:
-        - "5555:5555"
+      - "5555:5555"
     environment:
       AMQP_HOST: "amqp"
       AMQP_ADMIN_HOST: "amqp"
