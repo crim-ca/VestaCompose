@@ -40,7 +40,7 @@ services:
     restart: always
 
   sg:
-    image: docker-registry.crim.ca/vesta/sg:latest
+    image: vestaservices/servicegateway:latest
     links:
       - amqp
     ports:
@@ -67,8 +67,9 @@ services:
       - amqp
       - mss
       - cb_server
-    user: "1000"
     restart: always
+    environment:
+      C_FORCE_ROOT: "True"
     volumes:
       - ./celeryconfig.py:/conf/celeryconfig.py
     working_dir: /conf
