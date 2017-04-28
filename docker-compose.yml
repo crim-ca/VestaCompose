@@ -18,7 +18,7 @@ services:
       - "8080:8080"
 
   mss:
-    image: docker-registry.crim.ca/vesta/mss:1.7.0
+    image: vestaservices/mss:latest
     links:
       - amqp
       - swift
@@ -62,7 +62,7 @@ services:
     command: /tmp/get_cb.py
 
   stub:
-    image: docker-registry.crim.ca/vesta/service-stub:latest
+    image: vestaservices/servicestub:latest
     links:
       - amqp
       - mss
