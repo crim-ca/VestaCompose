@@ -89,8 +89,6 @@ services:
       FLOWER_BASIC_AUTH: "vesta:admin"
 
 # For performance issues.
-# See :
-# https://www.crim.ca/confluence/display/CRIMM/Docker#Docker-ConfiguredockernetworkMTUforopenStack
 networks:
   default:
     driver: bridge
