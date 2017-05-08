@@ -88,6 +88,29 @@ services:
       AMQP_ADMIN_HOST: "amqp"
       FLOWER_BASIC_AUTH: "vesta:admin"
 
+  jass:
+    image: vestaservices/jass:latest
+    environment:
+      - MONGO_HOST=mongodb://annouser:whateve4rlogin@jass_mongo/anno
+    expose:
+      - 5000
+    ports:
+      - "5002:5000"
+    depends_on:
+     - mongo
+
+  mongo:
+    image: tutum/mongodb
+    expose:
+      - 27017
+      - 28017
+    environment:
+      - MONGODB_DATABASE=anno
+      - MONGODB_USER=annouser
+      - MONGODB_PASS=whateve4rlogin
+    volumes:
+      - /data
+
 # For performance issues.
 networks:
   default:
