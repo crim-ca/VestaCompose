@@ -91,7 +91,7 @@ services:
   jass:
     image: vestaservices/jass:latest
     environment:
-      - MONGO_HOST=mongodb://annouser:whateve4rlogin@jass_mongo/anno
+      - MONGO_HOST=mongodb://annouser:whateve4rlogin@mongo/anno
     expose:
       - 5000
     ports:
