@@ -52,6 +52,9 @@ services:
       - /mnt/volume
     environment:
       VRP_CONFIGURATION: /opt/sg_cfg/conf.py
+    logging:
+      options:
+        max-size: "100m"
     restart: always
 
   cb_server:

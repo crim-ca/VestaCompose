@@ -10,7 +10,7 @@ CELERY_TASK_SERIALIZER = 'json'
 
 # Result backend settings ----------------------------------------------------
 CELERY_RESULT_BACKEND = "amqp"
-CELERY_RESULT_PERSISTENT = False
+CELERY_RESULT_PERSISTENT = True
 CELERY_RESULT_SERIALIZER = 'json'
 
 # Worker settings ------------------------------------------------------------
