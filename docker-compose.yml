@@ -12,6 +12,8 @@ services:
 
   swift:
     image: vestaservices/swift-local:latest
+    volumes:
+      - /srv
     expose:
       - "8080"
     ports:
