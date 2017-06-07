@@ -12,22 +12,22 @@ CELERY = {
     'CELERY_RESULT_SERIALIZER': "json",
     'CELERY_ACCEPT_CONTENT': ["json"]}
 
-DATABASES = {
-    'Invocations': {
-        'filename': "/mnt/volume/service_invocations.db",
-        'schema_filename':
-            "/usr/lib/python2.7/site-packages/"
-            "ServiceGateway/static/"
-            "service_invocations_schema.sql"
-        },
-    'Requests': {
-        'filename': "/mnt/volume/requests.db",
-        'schema_filename':
-            "/usr/lib/python2.7/site-packages/"
-            "ServiceGateway/static/"
-            "requests_schema.sql"
-        }
-    }
+# DATABASES = {
+#     'Invocations': {
+#         'filename': "/mnt/volume/service_invocations.db",
+#         'schema_filename':
+#             "/usr/lib/python2.7/site-packages/"
+#             "ServiceGateway/static/"
+#             "service_invocations_schema.sql"
+#         },
+#     'Requests': {
+#         'filename': "/mnt/volume/requests.db",
+#         'schema_filename':
+#             "/usr/lib/python2.7/site-packages/"
+#             "ServiceGateway/static/"
+#             "requests_schema.sql"
+#         }
+#     }
 
 CELERY_PROJ_NAME = "worker"
 

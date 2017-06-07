@@ -42,7 +42,8 @@ services:
     restart: always
 
   sg:
-    image: vestaservices/servicegateway:1.7.6
+    image: docker-registry.crim.ca/vesta/sg:1.7.3_old_build
+    # image: vestaservices/servicegateway:1.7.6
     links:
       - amqp
     ports:
