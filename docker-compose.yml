@@ -74,8 +74,7 @@ services:
       - mss
       - cb_server
     restart: always
-    environment:
-      C_FORCE_ROOT: "True"
+    user: "1000"
     volumes:
       - ./celeryconfig.py:/conf/celeryconfig.py
     working_dir: /conf
