@@ -42,7 +42,7 @@ services:
     restart: always
 
   sg:
-    image: vestaservices/servicegateway:latest
+    image: vestaservices/servicegateway:1.8.0
     links:
       - amqp
     ports:
