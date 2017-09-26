@@ -7,7 +7,6 @@ SECURITY = {"BYPASS_SECURITY": True}
 CELERY = {
     'BROKER_URL': "amqp://amqp",
     "CELERY_RESULT_BACKEND": "amqp",
-    "CELERY_RESULT_PERSISTENT": False,
     'CELERY_TASK_SERIALIZER': "json",
     'CELERY_RESULT_SERIALIZER': "json",
     'CELERY_ACCEPT_CONTENT': ["json"]}

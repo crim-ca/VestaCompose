@@ -11,7 +11,6 @@ CELERY_TASK_SERIALIZER = 'json'
 # Result backend settings ----------------------------------------------------
 CELERY_RESULT_BACKEND = "amqp"
 CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TASK_RESULT_EXPIRES = 7200
 
 # Worker settings ------------------------------------------------------------
 CELERYD_PREFETCH_MULTIPLIER = 1
