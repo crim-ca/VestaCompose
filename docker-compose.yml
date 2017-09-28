@@ -43,7 +43,7 @@ services:
 
   sg:
     # Use image from hub.docker.com
-    image: vestaservices/servicegateway:1.8.0
+    image: vestaservices/servicegateway:1.8.1
     links:
       - amqp
     ports:
