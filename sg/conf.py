@@ -75,6 +75,7 @@ WORKER_SERVICES = {
         'releasenotes': "https://github.com/crim-ca/Service",
         'support': "https://github.com/crim-ca/Service",
 
+        'noparams': False,
 
         # If the source are not provided, CANARIE requires a 204 (No content)
         # response
