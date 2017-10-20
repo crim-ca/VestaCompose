@@ -4,6 +4,9 @@ Updated values for ServiceGateway in Vesta context.
 
 SECURITY = {"BYPASS_SECURITY": True}
 
+GET_STORAGE_DOC_REQ_URL = "http://mss:5000/get/{storage_doc_id}"
+POST_STORAGE_DOC_REQ_URL = "http://mss:5000/add"
+
 CELERY = {
     'BROKER_URL': "amqp://amqp",
     "CELERY_RESULT_BACKEND": "amqp",

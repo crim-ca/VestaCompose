@@ -21,9 +21,6 @@ CELERY = {
     'CELERY_ACCEPT_CONTENT': ["json"],
     'CELERY_TASK_RESULT_EXPIRES': 7200}
 
-GET_STORAGE_DOC_REQ_URL = "http://mss:5000/get/{storage_doc_id}"
-POST_STORAGE_DOC_REQ_URL = "http://mss:5000/add"
-
 WORKER_SERVICES = {
     'transcoder': {
         # Keyword used in the rest api to access this service
